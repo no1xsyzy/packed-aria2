@@ -1,0 +1,22 @@
+diff -rupN webui-aria2-old/configuration.js webui-aria2/configuration.js
+--- webui-aria2-old/configuration.js	2017-08-02 13:35:48.569353087 +0800
++++ webui-aria2/configuration.js	2017-08-02 13:34:25.364947769 +0800
+@@ -6,15 +6,15 @@ angular
+ .constant('$authconf', {           // default authentication configuration, never fill it in case the webui is hosted in public IP as it can be compromised
+   host: location.protocol.startsWith('http') ? location.hostname : 'localhost',
+   path: '/jsonrpc',
+-  port: 6800,
++  port: location.port,
+   encrypt: false,
+   auth: {                          // either add the token field or the user and pass field, not both.
+-  // token: '$YOUR_SECRET_TOKEN$'
++    token: 'DataBack'
+   /*-----------------------------*/
+   // user: '*YOUR_USERNAME*',
+   // pass: '*YOUR_SECRET_PASS*'
+   },
+-  directURL: ''                   // If supplied, links will be created to enable direct download from the aria2 server, requires appropriate webserver to be configured
++  directURL: '/downloads/'                   // If supplied, links will be created to enable direct download from the aria2 server, requires appropriate webserver to be configured
+ })
+ .constant('$enable', {
+
